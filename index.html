@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAE Guatemala | Preventa Botas Unisex</title>
+
+  <style>
+    :root{
+      --bg:#f6f3ef;
+      --card:#f1ede8;
+      --card-2:#ece7e1;
+      --text:#2e2926;
+      --muted:#7c736b;
+      --brand:#5a4030;
+      --brand-dark:#422d21;
+      --accent:#b69a85;
+      --accent-dark:#9d826f;
+      --line:#ddd4cb;
+      --white:#ffffff;
+      --sale:#5d4b40;
+      --shadow:0 14px 36px rgba(56,40,29,.12);
+      --shadow-soft:0 8px 22px rgba(56,40,29,.08);
+      --radius:26px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Arial, Helvetica, sans-serif;
+    }
+    h1,h2,h3,h4,p{ margin:0; }
+    img{ display:block; max-width:100%; }
+    .serif{ font-family:Georgia, "Times New Roman", serif; letter-spacing:.2px; }
+
+    .topbar{
+      background:linear-gradient(90deg,#3b281c,#5d4230,#3b281c);
+      color:#fff;
+      text-align:center;
+      font-size:13px;
+      padding:10px 16px;
+      letter-spacing:.5px;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(246,243,239,.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:18px 38px;
+    }
+
+    .logo-wrap{ display:flex; align-items:center; min-width:180px; }
+    .logo-img{ width:170px; height:auto; object-fit:contain; }
+
+    .header-center{
+      display:flex;
+      gap:38px;
+      align-items:center;
+      justify-content:center;
+      flex:1;
+      color:var(--brand);
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+    }
+    .header-center span{ cursor:pointer; transition:.2s ease; }
+    .header-center span:hover{ opacity:.72; }
+
+    .help-top{
+      background:var(--brand);
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      padding:14px 20px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      box-shadow:var(--shadow);
+      white-space:nowrap;
+    }
+
+    .section{ width:min(1240px, calc(100% - 42px)); margin:0 auto; }
+
+    .hero{
+      min-height:92vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:56px 0 48px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(182,154,133,.18), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(77,55,40,.08), transparent 22%),
+        linear-gradient(180deg,#f8f5f1 0%, #efe8e0 100%);
+      overflow:hidden;
+    }
+
+    .hero-inner{
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:18px;
+      padding:10px 16px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--brand);
+      font-size:13px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.5);
+    }
+
+    .hero h1{
+      font-size:clamp(48px, 7vw, 88px);
+      line-height:.96;
+      color:var(--brand);
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:19px;
+      line-height:1.6;
+      color:#4f4741;
+      max-width:620px;
+      margin-bottom:16px;
+    }
+
+    .hero-cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:26px; }
+
+    .btn-main,
+    .btn-secondary{
+      padding:15px 24px;
+      border-radius:999px;
+      font-size:15px;
+      font-weight:700;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition:.25s ease;
+    }
+
+    .btn-main{ background:var(--accent); color:#fff; border:1px solid var(--accent); }
+    .btn-main:hover{ background:var(--accent-dark); border-color:var(--accent-dark); transform:translateY(-2px); }
+    .btn-secondary{ background:#fff; color:var(--brand); border:1px solid var(--line); }
+    .btn-secondary:hover{ transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    .hero-note{ margin-top:18px; font-size:14px; color:var(--muted); }
+
+    .hero-product-stage{
+      min-height:540px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      position:relative;
+    }
+
+    .hero-product-panel{
+      width:min(560px,100%);
+      height:470px;
+      position:relative;
+      border-radius:34px;
+      background:rgba(255,255,255,.42);
+      border:1px solid rgba(255,255,255,.78);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      backdrop-filter:blur(8px);
+    }
+
+    .hero-badge{
+      position:absolute;
+      top:22px;
+      right:22px;
+      background:#fff;
+      color:var(--brand);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      z-index:3;
+    }
+
+    .hero-unisex{
+      position:absolute;
+      left:22px;
+      bottom:22px;
+      background:rgba(90,64,48,.94);
+      color:#fff;
+      border-radius:16px;
+      padding:11px 15px;
+      font-size:13px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      z-index:3;
+    }
+
+    .hero-shoe{
+      position:absolute;
+      left:50%;
+      bottom:-10px;
+      transform:translateX(-50%) translateY(150px);
+      width:92%;
+      max-width:540px;
+      opacity:0;
+      object-fit:contain;
+      filter:drop-shadow(0 28px 24px rgba(0,0,0,.18));
+      animation:shoeRise 1.15s ease forwards .25s;
+    }
+
+    @keyframes shoeRise{ to{ transform:translateX(-50%) translateY(0); opacity:1; } }
+
+    .collection-head{ padding:86px 0 24px; }
+    .collection-head h2{ font-size:78px; color:var(--brand); margin-bottom:10px; line-height:.95; }
+    .collection-head p{ max-width:920px; color:var(--muted); font-size:17px; line-height:1.55; }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:26px;
+      padding:16px 0 90px;
+    }
+
+    .product-card{
+      cursor:pointer;
+      transition:.25s ease;
+      opacity:0;
+      transform:translateY(36px);
+      animation:cardUp .7s ease forwards;
+    }
+    .product-card:nth-child(1){animation-delay:.04s;}
+    .product-card:nth-child(2){animation-delay:.10s;}
+    .product-card:nth-child(3){animation-delay:.16s;}
+    .product-card:nth-child(4){animation-delay:.22s;}
+    .product-card:nth-child(5){animation-delay:.28s;}
+    .product-card:nth-child(6){animation-delay:.34s;}
+    .product-card:nth-child(7){animation-delay:.40s;}
+    .product-card:nth-child(8){animation-delay:.46s;}
+    @keyframes cardUp{ to{ opacity:1; transform:translateY(0); } }
+    .product-card:hover{ transform:translateY(-5px); }
+
+    .product-thumb{
+      position:relative;
+      background:var(--card);
+      border:1px solid #e5dbd1;
+      border-radius:30px;
+      aspect-ratio:1 / 1.06;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+
+    .sale-tag{
+      position:absolute;
+      top:18px;
+      left:18px;
+      background:#fff;
+      color:var(--sale);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:13px;
+      font-weight:700;
+      z-index:2;
+    }
+
+    .expand{
+      position:absolute;
+      top:18px;
+      right:18px;
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      color:var(--brand);
+      font-size:16px;
+      z-index:2;
+    }
+
+    .unisex-chip{
+      position:absolute;
+      right:18px;
+      bottom:18px;
+      background:var(--brand);
+      color:#fff;
+      border-radius:999px;
+      padding:10px 15px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      z-index:2;
+    }
+
+    .product-image-wrap{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
+    }
+
+    .product-thumb img{
+      width:88%;
+      height:88%;
+      object-fit:contain;
+      object-position:center;
+      filter:drop-shadow(0 18px 16px rgba(0,0,0,.12));
+    }
+
+    .product-meta{ padding:16px 6px 0; }
+    .product-name{ font-size:18px; font-weight:700; color:var(--sale); margin-bottom:5px; }
+    .product-color{ font-size:14px; color:#5f5650; margin-bottom:10px; }
+    .prices{ display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
+    .old-price{ font-size:16px; color:#8b8078; text-decoration:line-through; }
+    .new-price,.regular-price{ font-size:20px; font-weight:700; color:#46372d; }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(37,27,20,.62);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      z-index:1200;
+    }
+    .modal.active{ display:flex; }
+
+    .modal-box{
+      width:min(1280px, 100%);
+      max-height:94vh;
+      overflow:auto;
+      background:#faf7f3;
+      border:1px solid #eadfd3;
+      border-radius:32px;
+      box-shadow:0 30px 65px rgba(0,0,0,.24);
+      position:relative;
+      padding:28px;
+    }
+
+    .close-modal{
+      position:absolute;
+      top:16px;
+      right:16px;
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:var(--brand);
+      font-size:26px;
+      cursor:pointer;
+      z-index:10;
+    }
+
+    .modal-layout{ display:grid; grid-template-columns:1.05fr .95fr; gap:28px; }
+    .left-panel{ display:grid; grid-template-columns:.94fr 1.06fr; gap:20px; }
+
+    .product-preview{
+      background:linear-gradient(180deg,#f4efe9,#ece5dc);
+      border:1px solid #e3d8ce;
+      border-radius:26px;
+      min-height:640px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:26px;
+      overflow:hidden;
+    }
+
+    .product-preview img{
+      width:100%;
+      height:100%;
+      max-height:560px;
+      object-fit:contain;
+      transform:scale(1.12);
+      filter:drop-shadow(0 20px 18px rgba(0,0,0,.16));
+    }
+
+    .tryon-panel{
+      background:linear-gradient(180deg,#f1ede8 0%, #ebe4dc 100%);
+      border-radius:26px;
+      border:1px solid #e5ddd5;
+      padding:22px;
+    }
+
+    .tryon-head{ display:flex; justify-content:space-between; gap:14px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
+    .tryon-head h3{ font-size:23px; color:var(--brand); }
+
+    .upload-btn{
+      background:#fff;
+      color:var(--brand);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:10px 16px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .upload-btn input{ display:none; }
+
+    .tryon-stage{
+      position:relative;
+      height:420px;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(77,55,40,.08);
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,.75), transparent 35%),
+        linear-gradient(180deg,#faf8f5,#e9e0d6);
+      margin-bottom:18px;
+    }
+
+    .user-photo{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:none;
+    }
+
+    .outfit-scene{ position:absolute; inset:0; }
+    .scene-casual{ background:linear-gradient(180deg, rgba(240,235,227,.65), rgba(228,219,210,.82)), linear-gradient(90deg,#ece5dc 0 33%, #e1d5c8 33% 66%, #efe9e2 66% 100%); }
+    .scene-formal{ background:linear-gradient(180deg, rgba(236,231,226,.68), rgba(211,204,196,.86)), linear-gradient(90deg,#ded6ce 0 33%, #cfc5bc 33% 66%, #ece6df 66% 100%); }
+    .scene-urbano{ background:linear-gradient(180deg, rgba(227,224,220,.72), rgba(197,192,186,.88)), linear-gradient(90deg,#d2cbc4 0 33%, #bfb7af 33% 66%, #ddd6ce 66% 100%); }
+
+    .outfit-label{
+      position:absolute;
+      top:16px;
+      left:16px;
+      background:rgba(255,255,255,.85);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      color:var(--brand);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      z-index:2;
+    }
+
+    .legs{
+      position:absolute;
+      left:50%;
+      bottom:0;
+      transform:translateX(-50%);
+      width:230px;
+      height:285px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      z-index:3;
+    }
+
+    .leg{
+      width:82px;
+      height:250px;
+      border-radius:90px 90px 0 0;
+      background:#d7c1b0;
+      position:relative;
+    }
+
+    .leg::before{
+      content:"";
+      position:absolute;
+      top:-8px;
+      left:-8px;
+      right:-8px;
+      height:110px;
+      border-radius:74px 74px 22px 22px;
+      background:var(--outfit-color, #d6d1ca);
+    }
+
+    .boot-left,
+    .boot-right{
+      position:absolute;
+      bottom:-8px;
+      width:156px;
+      max-width:none;
+      filter:drop-shadow(0 16px 14px rgba(0,0,0,.18));
+    }
+    .boot-left{ left:-36px; transform:rotate(-6deg); }
+    .boot-right{ right:-44px; transform:scaleX(-1) rotate(-6deg); }
+
+    .outfit-controls{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+    .chip{
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--brand);
+      border-radius:999px;
+      padding:10px 14px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:700;
+      transition:.25s ease;
+    }
+    .chip.active,.chip:hover{ background:var(--brand); color:#fff; border-color:var(--brand); }
+    .tryon-tip{ font-size:13px; color:var(--muted); line-height:1.55; }
+
+    .right-panel{ padding:6px 4px 0 4px; }
+    .mini-tag{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:12px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      color:var(--brand);
+      margin-bottom:12px;
+      font-weight:700;
+    }
+
+    .right-panel h2{ font-size:54px; line-height:.95; color:var(--brand); margin-bottom:14px; }
+    .right-panel p{ font-size:18px; line-height:1.65; color:#4d4741; margin-bottom:16px; }
+    .fit-line{ font-size:13px; letter-spacing:1.2px; text-transform:uppercase; color:#8c7b6f; font-weight:700; margin:18px 0 18px; }
+    .size-title{ font-size:20px; font-weight:700; color:var(--brand); margin-bottom:12px; }
+
+    .size-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+      margin-bottom:22px;
+      max-width:440px;
+    }
+
+    .size-btn{
+      height:54px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      font-size:16px;
+      color:var(--brand);
+      transition:.2s ease;
+    }
+    .size-btn.active,.size-btn:hover{ background:var(--accent); color:#fff; border-color:var(--accent); }
+
+    .impact-card{
+      background:var(--card-2);
+      border:1px solid #dfd6cc;
+      border-radius:24px;
+      padding:22px 22px 18px;
+      margin:8px 0 18px;
+    }
+    .impact-card h4{ font-size:19px; color:var(--brand); margin-bottom:12px; }
+    .impact-card ul{ margin:0; padding-left:22px; line-height:1.85; font-size:16px; color:#433a34; }
+
+    .cta-row{ display:grid; grid-template-columns:1fr; gap:12px; }
+    .buy-btn{
+      width:100%;
+      border:none;
+      background:linear-gradient(90deg,var(--accent-dark), var(--brand));
+      color:#fff;
+      border-radius:20px;
+      padding:19px 22px;
+      font-size:20px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.25s ease;
+      box-shadow:var(--shadow-soft);
+    }
+    .buy-btn:hover{ transform:translateY(-2px); }
+    .wishlist{
+      width:100%;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--brand);
+      border-radius:20px;
+      padding:16px 18px;
+      font-size:17px;
+      font-weight:700;
+      text-align:center;
+    }
+
+    .checkout{
+      display:none;
+      margin-top:22px;
+      border-top:1px solid var(--line);
+      padding-top:24px;
+      animation:fadeIn .35s ease;
+    }
+    .checkout.active{ display:block; }
+    @keyframes fadeIn{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
+    .checkout h3{ font-size:42px; line-height:1; color:var(--brand); margin-bottom:18px; }
+
+    .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px 18px; }
+    .field{ display:flex; flex-direction:column; gap:8px; }
+    .field.full{ grid-column:1 / -1; }
+    .field label{ font-size:16px; color:#5f534b; font-weight:700; }
+
+    .field input,
+    .field select{
+      width:100%;
+      height:68px;
+      border-radius:22px;
+      border:2px solid #d5c9bc;
+      background:#fdfdfd;
+      padding:0 22px;
+      font-size:20px;
+      color:var(--text);
+      outline:none;
+      transition:.2s ease;
+    }
+    .field input:focus,.field select:focus{ border-color:var(--accent); box-shadow:0 0 0 4px rgba(182,154,133,.12); }
+
+    .payment-box{
+      margin-top:18px;
+      border:2px solid #d8cdbf;
+      border-radius:28px;
+      background:#fff;
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+    }
+    .payment-title{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:18px; }
+    .payment-title strong{ font-size:22px; color:var(--brand-dark); }
+    .cards-inline{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .cards-inline img{ height:36px; width:auto; object-fit:contain; }
+
+    .pay-btn{
+      margin-top:18px;
+      width:100%;
+      border:none;
+      border-radius:24px;
+      background:linear-gradient(90deg,var(--brand), var(--brand-dark));
+      color:#fff;
+      font-size:20px;
+      font-weight:700;
+      padding:22px;
+      cursor:pointer;
+      box-shadow:var(--shadow-soft);
+    }
+    .pay-note{ font-size:12px; color:var(--muted); margin-top:10px; line-height:1.55; }
+
+    .chat-widget{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:360px;
+      max-width:calc(100vw - 24px);
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:0 26px 60px rgba(0,0,0,.18);
+      overflow:hidden;
+      z-index:1300;
+      display:none;
+    }
+    .chat-widget.open{ display:block; }
+
+    .chat-header{
+      background:linear-gradient(90deg,var(--brand), var(--brand-dark));
+      color:#fff;
+      padding:16px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+    .chat-header h4{ font-size:17px; }
+    .chat-header button{
+      border:none;
+      background:rgba(255,255,255,.16);
+      color:#fff;
+      width:32px;
+      height:32px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:18px;
+    }
+
+    .chat-body{ padding:16px; background:#faf8f4; }
+    .chat-messages{ display:flex; flex-direction:column; gap:12px; max-height:280px; overflow:auto; margin-bottom:14px; padding-right:4px; }
+    .msg{ max-width:84%; padding:12px 14px; border-radius:16px; line-height:1.45; font-size:14px; }
+    .msg.bot{ background:#efe8e0; color:#4b4038; border-top-left-radius:6px; align-self:flex-start; }
+    .msg.user{ background:var(--brand); color:#fff; border-top-right-radius:6px; align-self:flex-end; }
+    .chat-input-row{ display:flex; gap:10px; }
+    .chat-input-row input{ flex:1; height:46px; border:1px solid var(--line); border-radius:14px; padding:0 14px; font-size:14px; outline:none; background:#fff; }
+    .chat-input-row button{ border:none; background:var(--brand); color:#fff; border-radius:14px; padding:0 16px; font-weight:700; cursor:pointer; }
+
+    .floating-chat-btn{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      z-index:1290;
+      background:var(--brand);
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      padding:15px 18px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      display:none;
+      gap:8px;
+      align-items:center;
+    }
+    .floating-chat-btn.show{ display:flex; }
+
+    @media (max-width: 1180px){
+      .hero-inner,.modal-layout,.left-panel{ grid-template-columns:1fr; }
+      .product-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+      .header-center{ display:none; }
+      .product-preview{ min-height:420px; }
+    }
+
+    @media (max-width: 760px){
+      .header{ padding:16px 18px; }
+      .logo-img{ width:132px; }
+      .help-top{ padding:12px 15px; font-size:13px; }
+      .collection-head h2{ font-size:52px; }
+      .product-grid{ grid-template-columns:1fr; }
+      .modal{ padding:10px; }
+      .modal-box{ padding:18px; }
+      .size-grid{ grid-template-columns:repeat(4,1fr); }
+      .form-grid{ grid-template-columns:1fr; }
+      .checkout h3{ font-size:34px; }
+      .field input,.field select{ height:58px; font-size:18px; }
+      .chat-widget{ right:10px; left:10px; width:auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">🌎 Preventa con mejores precios para quienes eligen caminar con propósito</div>
+
+  <header class="header">
+    <div class="logo-wrap">
+      <img class="logo-img" src="logo.png" alt="Logo NAE">
+    </div>
+
+    <nav class="header-center">
+      <span>Preventa GT</span>
+      <span>Unisex</span>
+      <span>Sostenible</span>
+      <span>Moda ética</span>
+    </nav>
+
+    <button class="help-top" onclick="openChat()">💬 ¿Necesitas ayuda?</button>
+  </header>
+
+  <section class="hero">
+    <div class="section hero-inner">
+      <div>
+        <span class="eyebrow">Bienvenido a NAE Guatemala</span>
+        <h1 class="serif">Sé parte del inicio de los zapatos veganos en Guatemala</h1>
+        <p>
+          Descubre la preventa de nuestras <strong>botas unisex</strong>: diseño contemporáneo,
+          materiales sostenibles y una forma de vestir con intención.
+        </p>
+        <p>
+          <strong>Preventa con mejores precios</strong> para quienes buscan estilo, conciencia
+          y una compra con impacto real.
+        </p>
+
+        <div class="hero-cta-row">
+          <a class="btn-main" href="#coleccion">Ver preventa</a>
+          <a class="btn-secondary" href="#coleccion">Explorar botas</a>
+        </div>
+
+        <div class="hero-note">Moda libre de crueldad • Preventa exclusiva para Guatemala</div>
+      </div>
+
+      <div class="hero-product-stage">
+        <div class="hero-product-panel">
+          <div class="hero-badge">Nueva preventa</div>
+          <img class="hero-shoe" src="diram.png" alt="Bota unisex NAE">
+          <div class="hero-unisex">Unisex</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="coleccion">
+    <div class="collection-head">
+      <h2 class="serif">Botas Unisex</h2>
+      <p>
+        Una preventa pensada para Guatemala: siluetas sobrias, tonos neutros y diseños versátiles
+        para un público que valora la sostenibilidad sin renunciar al estilo.
+      </p>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <div class="modal" id="productModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal()">×</button>
+
+      <div class="modal-layout">
+        <div class="left-panel">
+          <div class="product-preview">
+            <img id="modalProductImage" src="diram.png" alt="Producto">
+          </div>
+
+          <div class="tryon-panel">
+            <div class="tryon-head">
+              <h3>Ver en tus pies</h3>
+              <label class="upload-btn">
+                📷 Subir foto
+                <input type="file" accept="image/*" onchange="loadUserImage(event)">
+              </label>
+            </div>
+
+            <div class="tryon-stage">
+              <div class="outfit-scene scene-casual" id="scene"></div>
+              <div class="outfit-label" id="outfitLabel">Outfit casual</div>
+              <img class="user-photo" id="userPhoto" alt="Tu foto">
+
+              <div class="legs" id="legs" style="--outfit-color:#d6d1ca;">
+                <div class="leg">
+                  <img class="boot-left" id="bootLeft" src="diram.png" alt="Bota izquierda">
+                </div>
+                <div class="leg">
+                  <img class="boot-right" id="bootRight" src="diram.png" alt="Bota derecha">
+                </div>
+              </div>
+            </div>
+
+            <div class="outfit-controls">
+              <button class="chip active" onclick="changeOutfit('casual', this)">Casual</button>
+              <button class="chip" onclick="changeOutfit('formal', this)">Formal</button>
+              <button class="chip" onclick="changeOutfit('urbano', this)">Urbano</button>
+            </div>
+
+            <div class="tryon-tip">
+              Sube una foto o usa la visualización simulada para imaginar el producto con distintos estilos de ropa.
+            </div>
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <span class="mini-tag">Preventa Guatemala</span>
+          <h2 class="serif" id="modalTitle">DIRAM Black</h2>
+          <p id="modalDesc">Bota combate unisex de estética sobria, moderna y versátil para quienes quieren caminar con intención.</p>
+
+          <div class="fit-line">Botas unisex • elige tu talla habitual</div>
+
+          <div class="size-title">Tallas:</div>
+          <div class="size-grid" id="sizeGrid"></div>
+
+          <div class="impact-card">
+            <h4>🌍 El impacto que dejas al caminar</h4>
+            <ul>
+              <li>+2.5 kg CO₂ evitados</li>
+              <li>+500 L de agua preservados</li>
+              <li>0 explotación animal</li>
+            </ul>
+          </div>
+
+          <div class="cta-row">
+            <button class="buy-btn" onclick="openCheckout()">Comprar en preventa</button>
+            <div class="wishlist">♡ Agregar a favoritos</div>
+          </div>
+
+          <div class="checkout" id="checkoutBox">
+            <h3>Completa tu preventa</h3>
+
+            <div class="form-grid">
+              <div class="field">
+                <label>Nombres</label>
+                <input type="text" placeholder="Tu nombre completo">
+              </div>
+
+              <div class="field">
+                <label>Correo electrónico</label>
+                <input type="email" placeholder="correo@ejemplo.com">
+              </div>
+
+              <div class="field full">
+                <label>Dirección</label>
+                <input type="text" placeholder="Zona, avenida, número de casa o apartamento">
+              </div>
+
+              <div class="field">
+                <label>Ciudad</label>
+                <select>
+                  <option>Ciudad de Guatemala</option>
+                  <option>Mixco</option>
+                  <option>Antigua Guatemala</option>
+                  <option>Quetzaltenango</option>
+                  <option>Escuintla</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Talla seleccionada</label>
+                <input type="text" id="selectedSizeInput" placeholder="Selecciona una talla" readonly>
+              </div>
+            </div>
+
+            <div class="payment-box">
+              <div class="payment-title">
+                <strong>Pago con tarjeta de crédito</strong>
+                <div class="cards-inline">
+                  <img src="visa.png" alt="Visa">
+                  <img src="mastercard.png" alt="Mastercard">
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="field full">
+                  <label>Número de tarjeta</label>
+                  <input type="text" placeholder="1234 5678 9012 3456">
+                </div>
+
+                <div class="field">
+                  <label>Fecha de vencimiento</label>
+                  <input type="text" placeholder="MM/AA">
+                </div>
+
+                <div class="field">
+                  <label>CVV</label>
+                  <input type="text" placeholder="123">
+                </div>
+              </div>
+
+              <button class="pay-btn">Confirmar compra en preventa</button>
+              <div class="pay-note">Esta es una simulación visual del checkout para la landing page.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <div><h4>Asesoría NAE Guatemala</h4></div>
+      <button onclick="closeChat()">×</button>
+    </div>
+
+    <div class="chat-body">
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bot">¡Hola! 👋 Bienvenido a NAE Guatemala. ¿Te ayudo con tallas, preventa o métodos de pago?</div>
+      </div>
+
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+        <button onclick="sendChat()">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="floating-chat-btn" id="floatingChatBtn" onclick="openChat()">💬 Abrir chat</button>
+
+  <script>
+    const products = [
+      { id: 1, name: "DIRAM Black", color: "Black", price: "Q1,390.00", oldPrice: "", image: "diram.png", description: "Bota combate unisex de estética sobria, moderna y versátil para quienes quieren caminar con intención." },
+      { id: 2, name: "REIKO Black", color: "Black", price: "Q846.00", oldPrice: "Q1,301.00", image: "reiko.png", description: "Botín de media caña con presencia contemporánea y un look ideal para outfits urbanos o minimalistas." },
+      { id: 3, name: "GADEA Black", color: "Black", price: "Q846.00", oldPrice: "Q1,301.00", image: "gadea-black.png", description: "Diseño cálido y funcional para un estilo aventurero, con carácter unisex y estética limpia." },
+      { id: 4, name: "GADEA Brown", color: "Brown", price: "Q846.00", oldPrice: "Q1,301.00", image: "gadea-brown.png", description: "Versión en tono tierra que conecta muy bien con la identidad natural y consciente de la marca." },
+      { id: 5, name: "ADAR Green", color: "Green", price: "Q787.00", oldPrice: "Q1,211.00", image: "adar-green.png", description: "Botín unisex con aire outdoors, ideal para quienes buscan una estética relajada y funcional." },
+      { id: 6, name: "ADAR Grey", color: "Grey", price: "Q787.00", oldPrice: "Q1,211.00", image: "adar-grey.png", description: "Una opción discreta, moderna y fácil de combinar para looks neutros y conscientes." },
+      { id: 7, name: "MARCA Black", color: "Black", price: "Q787.00", oldPrice: "Q1,211.00", image: "marca.png", description: "Bota negra con estructura firme y presencia fuerte, pensada para estilos sobrios y atemporales." },
+      { id: 8, name: "PETA Black", color: "Black", price: "Q651.00", oldPrice: "Q1,301.00", image: "peta.png", description: "Modelo casual con identidad relajada, perfecto para introducir la marca al mercado de forma cercana." }
+    ];
+
+    const sizes = ["36","37","38","39","40","41","42","43","44","45"];
+
+    const grid = document.getElementById("productGrid");
+    const modal = document.getElementById("productModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalProductImage = document.getElementById("modalProductImage");
+    const bootLeft = document.getElementById("bootLeft");
+    const bootRight = document.getElementById("bootRight");
+    const scene = document.getElementById("scene");
+    const outfitLabel = document.getElementById("outfitLabel");
+    const sizeGrid = document.getElementById("sizeGrid");
+    const checkoutBox = document.getElementById("checkoutBox");
+    const selectedSizeInput = document.getElementById("selectedSizeInput");
+    const userPhoto = document.getElementById("userPhoto");
+    const chatWidget = document.getElementById("chatWidget");
+    const floatingChatBtn = document.getElementById("floatingChatBtn");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatInput = document.getElementById("chatInput");
+
+    let selectedProduct = null;
+    let selectedSize = "";
+
+    function renderProducts(){
+      grid.innerHTML = products.map(product => `
+        <article class="product-card" onclick="openModal(${product.id})">
+          <div class="product-thumb">
+            ${product.oldPrice ? `<div class="sale-tag">Sale</div>` : ``}
+            <div class="expand">⤢</div>
+            <div class="product-image-wrap">
+              <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="unisex-chip">Unisex</div>
+          </div>
+          <div class="product-meta">
+            <div class="product-name">${product.name}</div>
+            <div class="product-color">${product.color}</div>
+            <div class="prices">
+              ${product.oldPrice ? `<span class="old-price">${product.oldPrice}</span><span class="new-price">${product.price}</span>` : `<span class="regular-price">${product.price}</span>`}
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function openModal(id){
+      selectedProduct = products.find(p => p.id === id);
+      modal.classList.add("active");
+      modalTitle.textContent = selectedProduct.name;
+      modalDesc.textContent = selectedProduct.description;
+      modalProductImage.src = selectedProduct.image;
+      bootLeft.src = selectedProduct.image;
+      bootRight.src = selectedProduct.image;
+      selectedSize = "";
+      selectedSizeInput.value = "";
+      checkoutBox.classList.remove("active");
+      userPhoto.style.display = "none";
+      userPhoto.src = "";
+      renderSizes();
+      resetOutfitButtons();
+      setCasualScene();
+    }
+
+    function closeModal(){ modal.classList.remove("active"); }
+
+    function renderSizes(){
+      sizeGrid.innerHTML = sizes.map(size => `
+        <button class="size-btn ${selectedSize === size ? 'active' : ''}" onclick="selectSize('${size}')">${size}</button>
+      `).join("");
+    }
+
+    function selectSize(size){
+      selectedSize = size;
+      selectedSizeInput.value = size;
+      renderSizes();
+    }
+
+    function openCheckout(){
+      checkoutBox.classList.add("active");
+      if(!selectedSize) selectedSizeInput.value = "Selecciona una talla";
+      checkoutBox.scrollIntoView({ behavior:"smooth", block:"start" });
+    }
+
+    function resetOutfitButtons(){
+      document.querySelectorAll(".chip").forEach(btn => btn.classList.remove("active"));
+      const first = document.querySelector(".chip");
+      if(first) first.classList.add("active");
+    }
+
+    function changeOutfit(type, button){
+      document.querySelectorAll(".chip").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      if(type === "casual"){
+        setCasualScene();
+      } else if(type === "formal"){
+        scene.className = "outfit-scene scene-formal";
+        outfitLabel.textContent = "Outfit formal";
+        document.getElementById("legs").style.setProperty("--outfit-color", "#c8c0b7");
+      } else {
+        scene.className = "outfit-scene scene-urbano";
+        outfitLabel.textContent = "Outfit urbano";
+        document.getElementById("legs").style.setProperty("--outfit-color", "#b8b1aa");
+      }
+    }
+
+    function setCasualScene(){
+      scene.className = "outfit-scene scene-casual";
+      outfitLabel.textContent = "Outfit casual";
+      document.getElementById("legs").style.setProperty("--outfit-color", "#d6d1ca");
+    }
+
+    function loadUserImage(event){
+      const file = event.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e){
+        userPhoto.src = e.target.result;
+        userPhoto.style.display = "block";
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function openChat(){
+      chatWidget.classList.add("open");
+      floatingChatBtn.classList.remove("show");
+    }
+
+    function closeChat(){
+      chatWidget.classList.remove("open");
+      floatingChatBtn.classList.add("show");
+    }
+
+    function sendChat(){
+      const text = chatInput.value.trim();
+      if(!text) return;
+      const userMsg = document.createElement("div");
+      userMsg.className = "msg user";
+      userMsg.textContent = text;
+      chatMessages.appendChild(userMsg);
+      chatInput.value = "";
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      setTimeout(() => {
+        const botMsg = document.createElement("div");
+        botMsg.className = "msg bot";
+        const lower = text.toLowerCase();
+        if(lower.includes("talla")){
+          botMsg.textContent = "Claro 💡 Te recomendamos elegir tu talla habitual. Si quieres, también puedo ayudarte a decidir según el modelo.";
+        } else if(lower.includes("pago") || lower.includes("tarjeta")){
+          botMsg.textContent = "Aceptamos pago con tarjeta en esta simulación de preventa. Puedes completar tus datos en el formulario cuando elijas tu producto.";
+        } else if(lower.includes("envío") || lower.includes("direccion") || lower.includes("dirección")){
+          botMsg.textContent = "La preventa está pensada para Guatemala. Puedes completar tu dirección en el checkout para visualizar la experiencia completa.";
+        } else if(lower.includes("precio") || lower.includes("preventa")){
+          botMsg.textContent = "La preventa tiene precios preferenciales de lanzamiento para introducir NAE en Guatemala de una forma especial.";
+        } else {
+          botMsg.textContent = "Gracias por tu mensaje 🤍 Estoy aquí para ayudarte con tallas, preventa, envíos o métodos de pago.";
+        }
+        chatMessages.appendChild(botMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 700);
+    }
+
+    chatInput.addEventListener("keydown", (e) => { if(e.key === "Enter") sendChat(); });
+    window.addEventListener("click", function(e){ if(e.target === modal) closeModal(); });
+
+    renderProducts();
+    floatingChatBtn.classList.add("show");
+  </script>
+</body>
+</html>
